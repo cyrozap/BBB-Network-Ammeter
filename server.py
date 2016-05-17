@@ -20,26 +20,23 @@ from datetime import datetime
 
 from lxml import etree
 from flask import Flask, Response
-# from Adafruit_BBIO import ADC
+from Adafruit_BBIO import ADC
 
 app = Flask(__name__)
 
-def adc_to_current(adc_value):
-    return adc_value
-
-def get_current():
+def get_adc_voltage():
     # Read a value from the ADC
-    #value = ADC.read("P9_40")
+    value = ADC.read("P9_39")
 
-    # Convert the number to whatever
-    #current = adc_to_current(value)
-    current = adc_to_current(1.0)
+    # Convert the number to a voltage
+    voltage = value * 1.8
 
-    return current
+    return voltage
 
 @app.route("/sample")
 def sample():
-    return Response(current)
+    voltage = get_adc_voltage()
+    return Response(voltage)
 
 @app.route("/probe")
 def probe():
