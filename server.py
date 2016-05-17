@@ -25,7 +25,9 @@ from Adafruit_BBIO import ADC
 app = Flask(__name__)
 
 def get_current():
-    return 0
+    voltage = get_adc_voltage()
+    current = 109.2 * voltage + 5.3688
+    return current
 
 def get_adc_voltage():
     # Read a value from the ADC
