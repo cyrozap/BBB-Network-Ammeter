@@ -166,5 +166,5 @@ def current():
 
 
 if __name__ == "__main__":
-    # ADC.setup()
+    ADC.setup()
     app.run(debug=True)
