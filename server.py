@@ -26,7 +26,7 @@ app = Flask(__name__)
 
 def get_adc_voltage():
     # Read a value from the ADC
-    value = ADC.read("P9_39")
+    value = ADC.read("P9_39") # AIN0
 
     # Convert the number to a voltage
     voltage = value * 1.8
