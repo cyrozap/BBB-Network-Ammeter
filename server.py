@@ -36,7 +36,7 @@ def get_adc_voltage():
 @app.route("/sample")
 def sample():
     voltage = get_adc_voltage()
-    return Response(voltage)
+    return Response("{:.03f} V".format(voltage))
 
 @app.route("/probe")
 def probe():
